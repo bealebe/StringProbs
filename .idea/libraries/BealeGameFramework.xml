@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="BealeGameFramework">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../BealeGameFramework/out/artifacts/BealeGameFramework_jar/BealeGameFramework.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
