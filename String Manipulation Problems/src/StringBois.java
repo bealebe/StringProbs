@@ -47,6 +47,30 @@ public class StringBois  {
 
         System.out.println(decompressString(compressString("aabbeeeeeeeeettttttgkKo0")));
 
+        System.out.println();
+
+        System.out.println(getMiddle("test\0"));
+        System.out.println(getMiddle("testing\0"));
+        System.out.println(getMiddle("middle\0"));
+        System.out.println(getMiddle("A\0"));
+
+        System.out.println();
+
+        System.out.println(getCount("abracadabra"));
+
+        System.out.println();
+
+        System.out.println(findIt(new int[] {1, 2, 4, 4, 5, 1, 2, 3, 5}));
+       // System.out.println(dontGiveMeFive(4, 17));
+       // System.out.println(dontGiveMeFive(1, 20));
+
+
+        System.out.println();
+
+        System.out.println(HighAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+
+
+
 
     }
 
@@ -247,4 +271,61 @@ public class StringBois  {
 
     }
 
+
+    private static String getMiddle(String word){
+        word = word.replace("\0", "");
+        if (word.length() % 2 == 1){
+            return String.valueOf(word.charAt(word.length() / 2 ));
+        } else{
+            return String.valueOf(word.charAt((word.length() / 2) - 1 )) + String.valueOf(word.charAt(word.length() / 2));
+        }
+    }
+
+    private static int getCount(String str) {
+        return str.length() - str.toLowerCase().replaceAll("a|e|i|o|u|", "").length();
+    }
+
+//    public static int dontGiveMeFive(int start, int end)
+//    {
+//        int[] array = new int[end+1 - start];
+//
+//        Arrays.setAll(array, i -> i = end - i);
+//
+//        int j = 0;
+//
+//        for (int x = 0; x < array.length; x++) {
+//            if (array[x] % 10 == 5){
+//                j++;
+//            }
+//        }
+//
+//        return array.length - j;
+//    }
+
+    public static int findIt(int[] A) {
+        int j = 0;
+        for(int i = 0; i < A.length; i++){
+            j = j ^ A[i];
+        }
+        return j;
+    }
+
+    public static String HighAndLow(String numbers) {
+        // Code here or
+
+
+        String[] individuals = numbers.split(" ");
+
+        int mini = Integer.parseInt(individuals[0]);
+        int maxi = Integer.parseInt(individuals[0]);
+
+        for (String num : individuals) {
+            mini = Math.min(mini, Integer.parseInt(num));
+            maxi = Math.max(maxi, Integer.parseInt(num));
+        }
+
+        return maxi + " " + mini;
+
+
+    }
 }
